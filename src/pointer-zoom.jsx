@@ -34,7 +34,7 @@ function getOffset(el) {
   return { x: x, y: y };
 }
 
-class CursorZoom extends React.Component {
+class PointerZoom extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -146,9 +146,9 @@ class CursorZoom extends React.Component {
   }
 }
 
-CursorZoom.displayName = "CursorZoom";
+PointerZoom.displayName = "PointerZoom";
 
-CursorZoom.propTypes = {
+PointerZoom.propTypes = {
   // the size of the magnifier window
   size: PropTypes.number,
   // the offset of the zoom bubble from the cursor
@@ -180,11 +180,11 @@ CursorZoom.propTypes = {
   cursorZoomMagnifierClassName: PropTypes.string,
 };
 
-CursorZoom.defaultProps = {
+PointerZoom.defaultProps = {
   size: 200,
   cursorOffset: { x: 0, y: 0 }
 };
 
-CursorZoom.portalElement = null;
+PointerZoom.portalElement = null;
 
-export default CursorZoom;
+export default PointerZoom;

@@ -18,9 +18,9 @@ Based on [CarMax/react-cursor-zoom](https://github.com/CarMax/react-cursor-zoom)
 
 
 ```jsx
-import CursorZoom from 'react-cursor-zoom';
+import PointerZoom from 'react-pointer-zoom';
 
-<CursorZoom
+<PointerZoom
     image={{
         src: "img/beach-small.jpg",
         width: 400,

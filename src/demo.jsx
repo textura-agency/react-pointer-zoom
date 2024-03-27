@@ -1,10 +1,10 @@
 import React from "react";
-import CursorZoom from "./cursor-zoom.jsx";
+import PointerZoom from "./pointer-zoom.jsx";
 import { createRoot } from 'react-dom/client';
 
 const Demo = () => (
   <div>
-    <CursorZoom
+    <PointerZoom
       size={100}
       image={{
         src: "img/cat-small.jpg",
@@ -33,7 +33,7 @@ const Demo = () => (
         bottom: "10px"
       }}
     />
-    <CursorZoom
+    <PointerZoom
       image={{
         src: "img/beach-small.jpg",
         width: 400,
@@ -46,7 +46,7 @@ const Demo = () => (
       }}
       cursorOffset={{ x: 80, y: -80 }}
     />
-    <CursorZoom
+    <PointerZoom
       image={{
         src: "img/fall-small.jpg",
         width: 400,
