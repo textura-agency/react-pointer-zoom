@@ -1,1 +1,1 @@
-module.exports = require('./lib/cursor-zoom.js');
+module.exports = require('./lib/pointer-zoom.js');

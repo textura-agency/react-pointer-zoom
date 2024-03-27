@@ -10,7 +10,12 @@ Based on [CarMax/react-cursor-zoom](https://github.com/CarMax/react-cursor-zoom)
 
 ## Installation
 
+Via NPM
+
 `npm install react-pointer-zoom --save`
+
+Or Yarn
+
 `yarn add react-pointer-zoom`
 
 
@@ -71,18 +76,22 @@ The size of the zoom window
 
 Component Props
 
-`borderSize: number`
-`borderColor: string`
-`pointerStyle: {}`
-`containerStyle: {}`
-`magnifierContainerClassName: string`
-`cursorZoomPointerClassName: string`
-`cursorZoomMagnifierClassName: string`
+```jsx
+borderSize: number
+borderColor: string
+pointerStyle: {}
+containerStyle: {}
+magnifierContainerClassName: string
+cursorZoomPointerClassName: string
+cursorZoomMagnifierClassName: string
+```
 
 Or using default classes
 
-`.cursor-zoom-magnifier-container`
-`.cursor-zoom-pointer`
-`.cursor-zoom-magnifier-container`
+```
+.cursor-zoom-magnifier-container
+.cursor-zoom-pointer
+.cursor-zoom-magnifier-container
+```
 
 
