@@ -55,6 +55,7 @@ class PointerZoom extends React.Component {
     }
     this._props = _extends(
       {
+        ref: this.refs.image,
         size: this.props.size,
         smallImage: this.props.image,
         zoomImage: this.props.zoomImage,
@@ -87,6 +88,7 @@ class PointerZoom extends React.Component {
   componentDidUpdate() {
     this._props = _extends(
       {
+        ref: this.refs.image,
         size: this.props.size,
         smallImage: this.props.image,
         zoomImage: this.props.zoomImage,
@@ -163,8 +165,8 @@ PointerZoom.propTypes = {
   // the size of the non-zoomed-in image
   image: PropTypes.shape({
     src: PropTypes.string.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired
+    width: PropTypes.number,
+    height: PropTypes.number
   }).isRequired,
   // the size of the zoomed-in image
   zoomImage: PropTypes.shape({

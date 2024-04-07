@@ -4,6 +4,8 @@ A react component that uses a high-res source image to produce a zoom window on 
 
 Based on [CarMax/react-cursor-zoom](https://github.com/CarMax/react-cursor-zoom)
 
+updates: React ^18.2.0 support, css styling support
+
 ## Demo
 
 [Here](http://carmax.github.io/react-cursor-zoom/)
@@ -91,7 +93,7 @@ Or using default classes
 ```
 .cursor-zoom-magnifier-container
 .cursor-zoom-pointer
-.cursor-zoom-magnifier-container
+.cursor-zoom-magnifier
 ```
 
 

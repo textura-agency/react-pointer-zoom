@@ -33,7 +33,7 @@ const Demo = () => (
         bottom: "10px"
       }}
     />
-    <PointerZoom
+    {/* <PointerZoom
       image={{
         src: "img/beach-small.jpg",
         width: 400,
@@ -57,7 +57,7 @@ const Demo = () => (
         width: 1920,
         height: 1200
       }}
-    />
+    /> */}
   </div>
 );
 

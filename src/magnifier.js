@@ -7,14 +7,15 @@ function applyStyles(element, styles) {
 }
 
 export const Magnifier = (props) => {
-    var halfSizeY = props.size / 2;
-    var halfSizeX = (props.size) / 2;
+    const halfSizeY = props.size / 2;
+    const halfSizeX = (props.size) / 2;
 
     const magnifierContainer = document.createElement('div')
     magnifierContainer.classList.add(props.magnifierContainerClassName || 'cursor-zoom-magnifier-container')
     applyStyles(magnifierContainer, props.containerStyle || {
         position: 'absolute',
-        display: 'none',
+        // display: 'none',
+        visibility: 'hidden',
         top: props.y + 'px',
         left: props.x + 'px',
         width: props.size + 'px',
@@ -45,18 +46,27 @@ export const Magnifier = (props) => {
     cursorZoomMagnifier.addEventListener('click', props.handleClick)
     const clear = () => cursorZoomMagnifier.removeEventListener('click', props.handleClick)
     const updateVisibility = (props) => {
-        const isVisible = props.offsetY < props.smallImage.height && props.offsetX < props.smallImage.width && props.offsetY > 0 && props.offsetX > 0;
-        magnifierContainer.style.display = isVisible ? 'block' : 'none'
+        const smallImage = props.ref.getBoundingClientRect()
+        const isVisible = props.offsetY < smallImage.height && props.offsetX < smallImage.width && props.offsetY > 0 && props.offsetX > 0;
+        magnifierContainer.style.visibility = isVisible ? 'visible' : 'hidden'
+
         magnifierContainer.style.top = props.y + 'px'
         magnifierContainer.style.left = props.x + 'px'
     }
     const updateZoom = (props) => {
-        var halfSizeY = props.size / 2;
-        var halfSizeX = (props.size + (props.size * .4)) / 2;
-        var magX = props.zoomImage.width / props.smallImage.width;
-        var magY = props.zoomImage.height / props.smallImage.height;
-        var bgX = -(props.offsetX * magX - halfSizeX);
-        var bgY = -(props.offsetY * magY - halfSizeY);
+        const smallImage = props.ref.getBoundingClientRect()
+        const magnifier = magnifierContainer.getBoundingClientRect()
+
+        // console.log(smallImage.width, '---', props.zoomImage.width,  props.smallImage.width)
+        // console.log(props.size, '---', magnifier.width)
+
+        const halfSizeY = magnifier.height / 2;
+        const halfSizeX = (magnifier.width + (magnifier.width * .4)) / 2;
+        const magX = props.zoomImage.width / smallImage.width;
+        const magY = props.zoomImage.height / smallImage.height;
+
+        const bgX = -(props.offsetX * magX - halfSizeX);
+        const bgY = -(props.offsetY * magY - halfSizeY);
         cursorZoomMagnifier.style.backgroundPosition = bgX + 'px ' + bgY + 'px'
     }
 
