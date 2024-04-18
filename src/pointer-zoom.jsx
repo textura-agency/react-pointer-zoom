@@ -58,6 +58,7 @@ class PointerZoom extends React.Component {
     window.addEventListener("resize", this._onResize);
     if (!this.portalElement) {
       this.portalElement = document.createElement("div");
+      this.portalElement.classList.add('pointer-zoom-portal')
       document.body.appendChild(this.portalElement);
     }
     this._props = _extends(
