@@ -32,8 +32,13 @@ const Demo = () => (
         left: "-18px",
         bottom: "10px"
       }}
+      showPreview
+      previewPosition={{ x: 100, y: 100 }}
+      snapToPreview
+      snapSmooth={0.075}
+      snapDelay={300}
     />
-    {/* <PointerZoom
+    <PointerZoom
       image={{
         src: "img/beach-small.jpg",
         width: 400,
@@ -57,7 +62,7 @@ const Demo = () => (
         width: 1920,
         height: 1200
       }}
-    /> */}
+    />
   </div>
 );
 
