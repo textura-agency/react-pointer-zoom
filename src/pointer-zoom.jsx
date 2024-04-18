@@ -53,6 +53,7 @@ class PointerZoom extends React.Component {
     this._handleClick = this._handleClick.bind(this);
   }
   componentDidMount() {
+    this._onResize()
     document.addEventListener("mousemove", this._onMouseMove);
     window.addEventListener("resize", this._onResize);
     if (!this.portalElement) {
@@ -89,8 +90,11 @@ class PointerZoom extends React.Component {
     this.updateZoom = updateZoom
     this.portalElement.appendChild(magnifierContainer)
     this.componentDidUpdate()
-    this.updateVisibility(this._props)
-    this.updateZoom(this._props, true)
+    setTimeout(() => {
+      this.updateVisibility(this._props, true)
+      this.updateZoom(this._props, true)
+    }, 0)
+
   }
   componentWillUnmount() {
     this.clear && this.clear()
@@ -150,8 +154,8 @@ class PointerZoom extends React.Component {
       y: e.clientY + scrollY, //(window.scrollY || window.pageYOffset),
       offsetX: e.clientX - offset.x,
       offsetY: e.clientY - offset.y,
-      imageOffsetX: offset.x,
-      imageOffsetY: offset.y,
+      imageOffsetX: offset.x + scrollX,
+      imageOffsetY: offset.y + scrollY,
     });
   }
   _onResize() {
@@ -178,8 +182,8 @@ class PointerZoom extends React.Component {
       y: this.state.clientY + scrollY, //(window.scrollY || window.pageYOffset),
       offsetX: this.state.clientX - offset.x,
       offsetY: this.state.clientY - offset.y,
-      imageOffsetX: offset.x,
-      imageOffsetY: offset.y,
+      imageOffsetX: offset.x + scrollX,
+      imageOffsetY: offset.y + scrollY,
     });
 
     this._props = _extends(
