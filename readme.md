@@ -8,7 +8,7 @@ updates: React ^18.2.0 support, css styling support, smooth snap preview feature
 
 ## Demo
 
-[Here](http://carmax.github.io/react-cursor-zoom/)
+[Watch Demo](https://react-pointer-zoom.vercel.app/)
 
 ## Installation
 

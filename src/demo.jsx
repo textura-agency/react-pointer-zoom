@@ -3,7 +3,16 @@ import PointerZoom from "./pointer-zoom.jsx";
 import { createRoot } from 'react-dom/client';
 
 const Demo = () => (
-  <div>
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '64px',
+    padding: '64px'
+  }}>
+    <h1>React Pointer Zoom Examples</h1>
     <PointerZoom
       size={100}
       image={{
