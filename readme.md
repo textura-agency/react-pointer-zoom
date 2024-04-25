@@ -30,28 +30,29 @@ import PointerZoom from 'react-pointer-zoom';
 <PointerZoom
     size={100}
     image={{
-    src: "img/cat-small.jpg",
+        src: "img/cat-small.jpg",   
     }}
     zoomImage={{
-    src: "img/cat-large.jpg",
-    width: 1024,
-    height: 768
+        src: "img/cat-large.jpg",
+        width: 1024,
+        height: 768
     }}
+    placeholderZoomImageSrc="img/blured-cat-small.jpg"
     borderColor="white"
     borderSize="5px"
     cursorOffset={{
-    x: 100,
-    y: -20
+        x: 100,
+        y: -20
     }}
     pointerStyle={{
-    width: 0,
-    height: 0,
-    borderStyle: "solid",
-    borderWidth: "13.5px 23.4px 13.5px 0",
-    borderColor: "transparent white transparent transparent",
-    position: "absolute",
-    left: "-18px",
-    bottom: "10px"
+        width: 0,
+        height: 0,
+        borderStyle: "solid",
+        borderWidth: "13.5px 23.4px 13.5px 0",
+        borderColor: "transparent white transparent transparent",
+        position: "absolute",
+        left: "-18px",
+        bottom: "10px"
     }}
     showPreview
     previewPosition={{ x: 100, y: 100 }}
@@ -92,6 +93,14 @@ The high-res image to be used on hover
 `Number`
 
 The size of the zoom window
+
+### placeholderZoomImageSrc
+
+> Optional : default ``
+
+`string`
+
+Sets placeholder image instead high quality zoom image. High quality image start loading only after hover on 4k zoom
 
 ### showPreview
 

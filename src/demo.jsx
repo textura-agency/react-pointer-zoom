@@ -48,6 +48,26 @@ const Demo = () => (
       snapDelay={300}
     />
     <PointerZoom
+      size={100}
+      image={{
+        src: "img/cat-small.jpg",
+        width: 400,
+        height: 300
+      }}
+      zoomImage={{
+        src: "img/cat-large.jpg",
+        width: 1024,
+        height: 768
+      }}
+      borderColor="white"
+      borderSize="5px"
+      showPreview
+      previewPosition={{ x: 100, y: 100 }}
+      placeholderZoomImageSrc='img/beach-small.jpg'
+      snapSmooth={0.075}
+      snapDelay={0}
+    />
+    <PointerZoom
       image={{
         src: "img/beach-small.jpg",
         width: 400,

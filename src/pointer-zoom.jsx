@@ -75,6 +75,7 @@ class PointerZoom extends React.Component {
         previewPosition: this.props.previewPosition,
         snapToPreview: this.props.snapToPreview,
         snapSmooth: this.props.snapSmooth,
+        placeholderZoomImageSrc: this.props.placeholderZoomImageSrc,
         onClick: this._handleClick
       },
       this.state
@@ -83,12 +84,14 @@ class PointerZoom extends React.Component {
       magnifierContainer,
       clear,
       updateVisibility,
-      updateZoom
+      updateZoom,
+      updateZoomImage
     } = Magnifier(this._props)
     
     this.clear = clear
     this.updateVisibility = updateVisibility
     this.updateZoom = updateZoom
+    this.updateZoomImage = updateZoomImage
     this.portalElement.appendChild(magnifierContainer)
     this.componentDidUpdate()
     setTimeout(() => {
@@ -121,6 +124,7 @@ class PointerZoom extends React.Component {
         snapToPreview: this.props.snapToPreview,
         snapSmooth: this.props.snapSmooth,
         snapDelay: this.props.snapDelay,
+        placeholderZoomImageSrc: this.props.placeholderZoomImageSrc,
         onClick: this._handleClick
       },
       this.state
@@ -158,6 +162,8 @@ class PointerZoom extends React.Component {
       imageOffsetX: offset.x + scrollX,
       imageOffsetY: offset.y + scrollY,
     });
+
+    this.updateZoomImage(this._props)
   }
   _onResize() {
     var offset = getOffset(this.refs.image);
@@ -202,6 +208,7 @@ class PointerZoom extends React.Component {
         snapToPreview: this.props.snapToPreview,
         snapSmooth: this.props.snapSmooth,
         snapDelay: this.props.snapDelay,
+        placeholderZoomImageSrc: this.props.placeholderZoomImageSrc,
         onClick: this._handleClick
       },
       this.state
@@ -255,6 +262,7 @@ PointerZoom.propTypes = {
   }).isRequired,
   onClick: PropTypes.func,
   // zoom preview
+  placeholderZoomImageSrc: PropTypes.string,
   showPreview: PropTypes.bool,
   previewPosition: PropTypes.shape({
     x: PropTypes.number,

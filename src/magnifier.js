@@ -27,6 +27,7 @@ export const Magnifier = (props) => {
         sy: props.previewPosition?.y || 0, 
         visible: false,
         startSnapping: false,
+        zoomImageSrc: props.placeholderZoomImageSrc ? props.placeholderZoomImageSrc : props.zoomImage.src
     }
 
     const magnifierContainer = document.createElement('div')
@@ -55,7 +56,7 @@ export const Magnifier = (props) => {
     applyStyles(cursorZoomMagnifier, {
         width: props.size + 'px',
         height: props.size + 'px',
-        backgroundImage: 'url(' + props.zoomImage.src + ')',
+        backgroundImage: 'url(' + state.zoomImageSrc + ')',
         backgroundRepeat: 'no-repeat',
         border: props.borderSize + ' solid ' + props.borderColor
     })
@@ -131,11 +132,20 @@ export const Magnifier = (props) => {
         const bgY = -((state.y - state.imageOffsetY) * magY - halfSizeY);
         cursorZoomMagnifier.style.backgroundPosition = bgX + 'px ' + bgY + 'px'
     }
+    const updateZoomImage = (props) => {
+        if (state.visible) {
+            if (state.zoomImageSrc !== props.zoomImage.src) {
+                state.zoomImageSrc = props.zoomImage.src
+                cursorZoomMagnifier.style.backgroundImage = 'url(' + state.zoomImageSrc + ')'
+            }
+        }
+    }
 
     return {
         magnifierContainer,
         clear,
         updateVisibility,
-        updateZoom
+        updateZoom,
+        updateZoomImage
     }
 }
