@@ -137,6 +137,7 @@ export const Magnifier = (props) => {
             if (state.zoomImageSrc !== props.zoomImage.src) {
                 state.zoomImageSrc = props.zoomImage.src
                 cursorZoomMagnifier.style.backgroundImage = 'url(' + state.zoomImageSrc + ')'
+                magnifierContainer.classList.add('cursor-pointer-loading')
             }
         }
     }

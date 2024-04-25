@@ -1,6 +1,6 @@
 {
   "name": "react-pointer-zoom",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A react component that uses a high-res source image to produce a zoom window on mouse hover",
   "main": "index.js",
   "scripts": {
